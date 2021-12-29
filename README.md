@@ -18,9 +18,9 @@ Grpc: https://grpc.io/docs/quickstart/python.html
 
 Install Grpc: python -m pip install grpcio
 
-Install Grpc tools: $ python -m pip install grpcio-tools
+Install Grpc tools: python -m pip install grpcio-tools
 
-Install openCV: sudo apt-get install libopencv-dev python-opencv
+Install openCV: pip install opencv-contrib-python
 
 # Implementation
 
@@ -48,9 +48,13 @@ python imageTest_client.py
 
 Install required packages in a virtual environment. 
 
-Run Sean's gRPC (repository below) locally first, to make sure the basics are understood. If possible, utilize DigitalOcean / AWS VMs to then extend the concept.
+Run Sean's gRPC (repository below) locally first, to make sure the basics are understood. If possible, utilize DigitalOcean / AWS VMs instead of simply executing it locally.
 
 Once the above is complete, try running this repo.
+
+# Notes on Debugging
+
+Debugging with gRPC is sometimes a little tricky. <b> WIP </b>
 
 # Acknowledgements
 
