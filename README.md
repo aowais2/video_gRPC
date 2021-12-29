@@ -16,33 +16,31 @@ This communication is considered bi-directional, since data is sent from the cli
 
 Grpc: https://grpc.io/docs/quickstart/python.html
 
-Install Grpc: python -m pip install grpcio
+Install Grpc: ```python -m pip install grpcio```
 
-Install Grpc tools: python -m pip install grpcio-tools
+Install Grpc tools: ```python -m pip install grpcio-tools```
 
-Install openCV: pip install opencv-contrib-python
+Install openCV: ```pip install opencv-contrib-python```
 
 # Implementation
 
-First we make the .proto file and place it in the grpcTest/protos folder. We execute the following command from the folder grpcTest.
+We first define our service by creating a proto file. This proto file defines what we want to send and receive. In our case, the client sends a frame and receives an integer as acknowledgement. We place the proto in the video_gRPC/protos folder. 
 
-python -m grpc_tools.protoc -I protos --python_out=. --grpc_python_out=. protos/imageTest.proto
+We then execute the following command from the directory video_gRPC:
 
-This creates the files imageTest_pb2_grpc.py and imageTest_pb2.py in the folder grpcTest.
+```python -m grpc_tools.protoc -I protos --python_out=. --grpc_python_out=. protos/video.proto```
 
-We then write the files imageTest_server.py and imageTest_client.py which use the above 2 generated files.
+This should now generate video_pb2.py and video_pb2_grpc.py .
 
-The server sends the video file via a stream of frames. The client receives these frames and continuously processes each frame and counts the number of people entering the video. This count is sent back to the server using streaming.
-
-Note: Use internet through LAN for fastest transfer.
+We now need to define client and server behavior. If you remember from above, the client sends a frame, and the server needs to receive it. Here, we simply transfer a frame by 
 
 To start server,
 
-python imageTest_server.py
+```python server.py```
 
 To start client,
 
-python imageTest_client.py
+```python client.py```
 
 # Suggested Methodology
 
