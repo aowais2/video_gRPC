@@ -4,8 +4,8 @@ This repository focuses on livestreaming of video data (frames) from a client to
 
 ## A word on terminology
 
-The client refers to the machine that sends data.
-Server refers to the machine that receives this data.
+'Client' refers to the machine that sends data.
+'Server' refers to the machine that receives this data.
 
 A good example is streaming live data from a Raspberry Pi to a remote VM for data processing. The client would be the Raspberry Pi, and the VM the server.
 
