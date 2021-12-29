@@ -77,4 +77,6 @@ If grpc_status under debug_error_string is 14, it just means the client was unab
 
 # Acknowledgements
 
-Sean's gRPC is an excellent resource for getting started with gRPC : https://github.com/Sean-Bradley/Seans-gRPC
+Sean's gRPC is an excellent resource for getting started with gRPC : https://github.com/Sean-Bradley/Seans-gRPC.
+
+The video (youtube link is available on his repo) guides you through the process in more detail and is highly recommended for someone starting out.
