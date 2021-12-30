@@ -35,11 +35,11 @@ This should now generate video_pb2.py and video_pb2_grpc.py .
 
 We now need to define client and server behavior. If you remember from above, the client sends a frame, and the server needs to receive it. Here, we simply transfer a frame by defining it as a "byte"
 
-To start the server,
+To start the server, run
 
 ```python server.py```
 
-To start the client,
+To start the client, on a separate terminal, run
 
 ```python client.py```
 
@@ -51,7 +51,9 @@ Run Sean's gRPC (repository below) locally first, to make sure the basics are un
 
 Once the above is complete, try running this repo.
 
-# Notes on Debugging
+# Notes on 
+
+## Debugging
 
 Debugging with gRPC is sometimes a little tricky. gRPC returns an error in the ```debug_error_string``` field. For example, if you have an error in your code that prevents communication, you will receive the following message block :
 
@@ -74,6 +76,14 @@ grpc._channel._MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that te
 The grpc_message field under debug_error_string is where you will find the problem. In this case, the problem was that time.clock is deprecated, hence an error was produced.
 
 If grpc_status under debug_error_string is 14, it just means the client was unable to find the server. You can simply execute the client once again, or until the client finds the server.
+
+## Color
+
+The streaming implemented in client converts BGR to GRAY using the respective cv2 method. If you want to transmit the 3 color channels, you need to make sure the server expects those 3 channels. Practically, this means you need to modify the size of the expected 'byte' that comes across from (480,640) to (480,640,3).
+
+## Ports
+
+For this implementation, we simply transmit from a client to a server on the localhost (on different terminals of course) , i.e. on the same computer using the port 50051. To make this work practically, you must define the IPv4 address of the server in ```client.py```. Make sure the IP table rules on your server allow for such port forwarding.
 
 # Acknowledgements
 
